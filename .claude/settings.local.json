@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(python -m claude_pipeline.query_results:*)"
+    ]
+  }
+}

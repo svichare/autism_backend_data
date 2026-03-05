@@ -1,0 +1,438 @@
+2026-03-04 22:13:42,323 - claude_pipeline.pipeline - INFO - Created MongoDB indexes
+2026-03-04 22:13:42,938 - __main__ - INFO - ================================================================================
+2026-03-04 22:13:42,939 - __main__ - INFO - AUTISM TREATMENT PIPELINE
+2026-03-04 22:13:42,939 - __main__ - INFO - ================================================================================
+2026-03-04 22:13:42,939 - __main__ - INFO - Pipeline ID: autism_pipeline_22bc0e97
+2026-03-04 22:13:42,940 - __main__ - INFO - Search term: autism[Title/Abstract] AND (drug OR medication OR pharmacological OR treatment)
+2026-03-04 22:13:42,940 - __main__ - INFO - Max papers: 100
+2026-03-04 22:13:42,940 - __main__ - INFO - Batch size: 10
+2026-03-04 22:13:42,941 - __main__ - INFO - Checkpoint interval: 100
+2026-03-04 22:13:42,941 - __main__ - INFO - Resume: False
+2026-03-04 22:13:42,941 - __main__ - INFO - Model: gpt-4o-mini
+2026-03-04 22:13:42,942 - __main__ - INFO - ================================================================================
+2026-03-04 22:13:42,942 - claude_pipeline.pipeline - INFO - Starting pipeline: autism_pipeline_22bc0e97
+2026-03-04 22:13:42,942 - claude_pipeline.pipeline - INFO - Configuration: PipelineConfig(ncbi_api_key='789dc0beddb7a3dbe1d501cb8482c2875b09', email='onboard.ai@gmail.com', openai_api_key='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', mongo_uri='mongodb+srv://onboardicu:0nBoard!23@onboardfirst.l0hk6.mongodb.net/?appName=onboardfirst&retryWrites=true&w=majority', mongo_db='pubmed', search_term='autism[Title/Abstract] AND (drug OR medication OR pharmacological OR treatment)', max_papers_per_batch=100, max_total_papers=100, model='gpt-4o-mini', max_tokens=4000, temperature=0.1, papers_collection='autism_papers', treatments_collection='autism_treatments', treatment_hierarchy_collection='treatment_hierarchy', checkpoints_collection='pipeline_checkpoints', checkpoint_interval=100, retry_attempts=3, retry_delay=5, batch_size=10, rate_limit_delay=0.34)
+2026-03-04 22:13:42,943 - claude_pipeline.pipeline - INFO - ================================================================================
+2026-03-04 22:13:42,943 - claude_pipeline.pipeline - INFO - STAGE 1: Fetching and analyzing papers
+2026-03-04 22:13:42,944 - claude_pipeline.pipeline - INFO - ================================================================================
+2026-03-04 22:13:43,741 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 1 IDs starting from 0
+2026-03-04 22:13:43,742 - claude_pipeline.ncbi_fetcher - INFO - Found 44317 total papers for term 'autism[Title/Abstract] AND (drug OR medication OR pharmacological OR treatment)', fetching up to 100 papers
+2026-03-04 22:13:44,526 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 0
+2026-03-04 22:13:45,152 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:13:45,196 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41780069
+2026-03-04 22:13:47,074 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:13:47,094 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41780069
+2026-03-04 22:13:47,095 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41779743
+2026-03-04 22:13:56,045 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:13:56,046 - claude_pipeline.treatment_extractor - INFO - Extracted 3 treatments from paper 41779743
+2026-03-04 22:13:56,046 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41779503
+2026-03-04 22:13:57,685 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:13:57,688 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41779503
+2026-03-04 22:13:57,688 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41779339
+2026-03-04 22:14:00,245 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:00,248 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41779339
+2026-03-04 22:14:00,249 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41779338
+2026-03-04 22:14:01,165 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:01,167 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41779338
+2026-03-04 22:14:01,167 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41779288
+2026-03-04 22:14:01,985 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:01,988 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41779288
+2026-03-04 22:14:01,989 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41778339
+2026-03-04 22:14:03,214 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:03,216 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41778339
+2026-03-04 22:14:03,217 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41778191
+2026-03-04 22:14:07,485 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:07,488 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41778191
+2026-03-04 22:14:07,489 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41778151
+2026-03-04 22:14:12,121 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:12,122 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41778151
+2026-03-04 22:14:12,122 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41777507
+2026-03-04 22:14:13,250 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:13,253 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41777507
+2026-03-04 22:14:13,254 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 3/10 papers in batch
+2026-03-04 22:14:13,459 - claude_pipeline.pipeline - INFO - Stored 3 treatment records
+2026-03-04 22:14:13,959 - claude_pipeline.ncbi_fetcher - INFO - Progress: 10/100 papers fetched (10.0%)
+2026-03-04 22:14:14,890 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 10
+2026-03-04 22:14:15,919 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:14:16,117 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41777010
+2026-03-04 22:14:18,063 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:18,066 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41777010
+2026-03-04 22:14:18,066 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41776703
+2026-03-04 22:14:19,702 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:19,705 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41776703
+2026-03-04 22:14:19,705 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41776675
+2026-03-04 22:14:20,941 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:20,943 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41776675
+2026-03-04 22:14:20,944 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41775700
+2026-03-04 22:14:22,776 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:22,779 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41775700
+2026-03-04 22:14:22,779 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41775479
+2026-03-04 22:14:24,923 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:24,926 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41775479
+2026-03-04 22:14:24,926 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41775333
+2026-03-04 22:14:25,949 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:25,952 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41775333
+2026-03-04 22:14:25,953 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41774982
+2026-03-04 22:14:26,664 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:26,668 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41774982
+2026-03-04 22:14:26,669 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41774972
+2026-03-04 22:14:27,790 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:27,793 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41774972
+2026-03-04 22:14:27,793 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41774970
+2026-03-04 22:14:28,814 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:28,817 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41774970
+2026-03-04 22:14:28,817 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41773607
+2026-03-04 22:14:29,531 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:29,534 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41773607
+2026-03-04 22:14:29,534 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 0/10 papers in batch
+2026-03-04 22:14:30,034 - claude_pipeline.ncbi_fetcher - INFO - Progress: 20/100 papers fetched (20.0%)
+2026-03-04 22:14:31,089 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 20
+2026-03-04 22:14:32,013 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:14:32,058 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41773580
+2026-03-04 22:14:36,607 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:36,611 - claude_pipeline.treatment_extractor - INFO - Extracted 2 treatments from paper 41773580
+2026-03-04 22:14:36,613 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41773088
+2026-03-04 22:14:37,466 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:37,468 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41773088
+2026-03-04 22:14:37,468 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41772057
+2026-03-04 22:14:38,328 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:38,376 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41772057
+2026-03-04 22:14:38,376 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41771813
+2026-03-04 22:14:39,471 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:39,472 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41771813
+2026-03-04 22:14:39,473 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41770754
+2026-03-04 22:14:41,340 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:41,343 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41770754
+2026-03-04 22:14:41,344 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41770419
+2026-03-04 22:14:43,612 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:43,615 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41770419
+2026-03-04 22:14:43,615 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41770300
+2026-03-04 22:14:44,592 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:44,594 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41770300
+2026-03-04 22:14:44,595 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41769840
+2026-03-04 22:14:46,236 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:46,240 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41769840
+2026-03-04 22:14:46,240 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41769199
+2026-03-04 22:14:47,051 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:47,055 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41769199
+2026-03-04 22:14:47,056 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41768596
+2026-03-04 22:14:47,656 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:47,660 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41768596
+2026-03-04 22:14:47,661 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 1/10 papers in batch
+2026-03-04 22:14:47,759 - claude_pipeline.pipeline - INFO - Stored 1 treatment records
+2026-03-04 22:14:48,260 - claude_pipeline.ncbi_fetcher - INFO - Progress: 30/100 papers fetched (30.0%)
+2026-03-04 22:14:49,296 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 30
+2026-03-04 22:14:50,297 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:14:50,350 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41767424
+2026-03-04 22:14:51,136 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:51,139 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41767424
+2026-03-04 22:14:51,139 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41767012
+2026-03-04 22:14:59,943 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:14:59,947 - claude_pipeline.treatment_extractor - INFO - Extracted 4 treatments from paper 41767012
+2026-03-04 22:14:59,947 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41765434
+2026-03-04 22:15:03,703 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:03,706 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41765434
+2026-03-04 22:15:03,706 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41765432
+2026-03-04 22:15:05,164 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:05,167 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41765432
+2026-03-04 22:15:05,168 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41765286
+2026-03-04 22:15:05,985 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:05,988 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41765286
+2026-03-04 22:15:05,988 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41765239
+2026-03-04 22:15:10,387 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:10,390 - claude_pipeline.treatment_extractor - INFO - Extracted 2 treatments from paper 41765239
+2026-03-04 22:15:10,390 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41765140
+2026-03-04 22:15:11,411 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:11,412 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41765140
+2026-03-04 22:15:11,413 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41764339
+2026-03-04 22:15:12,128 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:12,129 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41764339
+2026-03-04 22:15:12,129 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41764152
+2026-03-04 22:15:13,357 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:13,360 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41764152
+2026-03-04 22:15:13,360 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41764026
+2026-03-04 22:15:14,382 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:14,385 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41764026
+2026-03-04 22:15:14,385 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 3/10 papers in batch
+2026-03-04 22:15:14,501 - claude_pipeline.pipeline - INFO - Stored 3 treatment records
+2026-03-04 22:15:15,001 - claude_pipeline.ncbi_fetcher - INFO - Progress: 40/100 papers fetched (40.0%)
+2026-03-04 22:15:16,329 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 40
+2026-03-04 22:15:17,077 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:15:17,120 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41763521
+2026-03-04 22:15:18,263 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:18,265 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41763521
+2026-03-04 22:15:18,266 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41763504
+2026-03-04 22:15:18,883 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:18,888 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41763504
+2026-03-04 22:15:18,889 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41763482
+2026-03-04 22:15:22,368 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:22,370 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41763482
+2026-03-04 22:15:22,371 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41762787
+2026-03-04 22:15:26,670 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:26,673 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41762787
+2026-03-04 22:15:26,674 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41762477
+2026-03-04 22:15:27,931 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:27,932 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41762477
+2026-03-04 22:15:27,932 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41762172
+2026-03-04 22:15:29,234 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:29,235 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41762172
+2026-03-04 22:15:29,235 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41762048
+2026-03-04 22:15:30,256 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:30,259 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41762048
+2026-03-04 22:15:30,259 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41761984
+2026-03-04 22:15:31,277 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:31,280 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41761984
+2026-03-04 22:15:31,280 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41761373
+2026-03-04 22:15:34,042 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:34,045 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41761373
+2026-03-04 22:15:34,046 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41760923
+2026-03-04 22:15:35,373 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:35,375 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41760923
+2026-03-04 22:15:35,376 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 3/10 papers in batch
+2026-03-04 22:15:35,456 - claude_pipeline.pipeline - INFO - Stored 3 treatment records
+2026-03-04 22:15:35,957 - claude_pipeline.ncbi_fetcher - INFO - Progress: 50/100 papers fetched (50.0%)
+2026-03-04 22:15:36,709 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 50
+2026-03-04 22:15:37,544 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:15:37,728 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41759444
+2026-03-04 22:15:39,162 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:39,165 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41759444
+2026-03-04 22:15:39,165 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41759439
+2026-03-04 22:15:42,848 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:42,851 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41759439
+2026-03-04 22:15:42,851 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41759231
+2026-03-04 22:15:44,076 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:44,079 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41759231
+2026-03-04 22:15:44,079 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41757578
+2026-03-04 22:15:45,306 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:45,309 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41757578
+2026-03-04 22:15:45,309 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41757349
+2026-03-04 22:15:46,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:46,742 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41757349
+2026-03-04 22:15:46,742 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41757170
+2026-03-04 22:15:48,070 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:48,073 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41757170
+2026-03-04 22:15:48,074 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41756480
+2026-03-04 22:15:48,890 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:48,893 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41756480
+2026-03-04 22:15:48,893 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41756039
+2026-03-04 22:15:49,894 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:49,898 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41756039
+2026-03-04 22:15:49,898 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41754883
+2026-03-04 22:15:56,440 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:56,446 - claude_pipeline.treatment_extractor - INFO - Extracted 3 treatments from paper 41754883
+2026-03-04 22:15:56,446 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41753599
+2026-03-04 22:15:57,902 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:15:57,905 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41753599
+2026-03-04 22:15:57,905 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 2/10 papers in batch
+2026-03-04 22:15:58,106 - claude_pipeline.pipeline - INFO - Stored 2 treatment records
+2026-03-04 22:15:58,607 - claude_pipeline.ncbi_fetcher - INFO - Progress: 60/100 papers fetched (60.0%)
+2026-03-04 22:15:59,438 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 60
+2026-03-04 22:16:00,889 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:16:00,954 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41752141
+2026-03-04 22:16:01,967 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:01,975 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41752141
+2026-03-04 22:16:01,976 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41751904
+2026-03-04 22:16:02,830 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:02,835 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41751904
+2026-03-04 22:16:02,835 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41751633
+2026-03-04 22:16:03,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:03,741 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41751633
+2026-03-04 22:16:03,742 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41751631
+2026-03-04 22:16:04,557 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:04,559 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41751631
+2026-03-04 22:16:04,560 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41751622
+2026-03-04 22:16:05,274 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:05,277 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41751622
+2026-03-04 22:16:05,277 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41751547
+2026-03-04 22:16:06,552 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:06,555 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41751547
+2026-03-04 22:16:06,555 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41750370
+2026-03-04 22:16:07,324 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:07,327 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41750370
+2026-03-04 22:16:07,328 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41750232
+2026-03-04 22:16:10,087 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:10,090 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41750232
+2026-03-04 22:16:10,090 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41750142
+2026-03-04 22:16:10,811 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:10,813 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41750142
+2026-03-04 22:16:10,814 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41750127
+2026-03-04 22:16:11,451 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:11,454 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41750127
+2026-03-04 22:16:11,454 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 1/10 papers in batch
+2026-03-04 22:16:11,518 - claude_pipeline.pipeline - INFO - Stored 1 treatment records
+2026-03-04 22:16:12,019 - claude_pipeline.ncbi_fetcher - INFO - Progress: 70/100 papers fetched (70.0%)
+2026-03-04 22:16:12,650 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 70
+2026-03-04 22:16:13,871 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:16:13,915 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41750098
+2026-03-04 22:16:14,698 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:14,701 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41750098
+2026-03-04 22:16:14,702 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41750089
+2026-03-04 22:16:15,527 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:15,532 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41750089
+2026-03-04 22:16:15,533 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41749659
+2026-03-04 22:16:16,189 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:16,202 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41749659
+2026-03-04 22:16:16,202 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41749537
+2026-03-04 22:16:19,407 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:19,410 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41749537
+2026-03-04 22:16:19,410 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41749471
+2026-03-04 22:16:20,942 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:20,945 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41749471
+2026-03-04 22:16:20,945 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41749064
+2026-03-04 22:16:21,968 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:21,972 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41749064
+2026-03-04 22:16:21,972 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41749004
+2026-03-04 22:16:22,888 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:22,892 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41749004
+2026-03-04 22:16:22,893 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41748807
+2026-03-04 22:16:24,114 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:24,116 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41748807
+2026-03-04 22:16:24,116 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41748585
+2026-03-04 22:16:25,037 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:25,040 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41748585
+2026-03-04 22:16:25,040 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41748402
+2026-03-04 22:16:26,678 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:26,682 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41748402
+2026-03-04 22:16:26,682 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 1/10 papers in batch
+2026-03-04 22:16:26,724 - claude_pipeline.pipeline - INFO - Stored 1 treatment records
+2026-03-04 22:16:27,225 - claude_pipeline.ncbi_fetcher - INFO - Progress: 80/100 papers fetched (80.0%)
+2026-03-04 22:16:27,919 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 80
+2026-03-04 22:16:28,955 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:16:28,997 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41748159
+2026-03-04 22:16:30,309 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:30,315 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41748159
+2026-03-04 22:16:30,316 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41747505
+2026-03-04 22:16:31,591 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:31,594 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41747505
+2026-03-04 22:16:31,595 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41746531
+2026-03-04 22:16:33,024 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:33,027 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41746531
+2026-03-04 22:16:33,027 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41746527
+2026-03-04 22:16:34,023 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:34,029 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41746527
+2026-03-04 22:16:34,030 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41746492
+2026-03-04 22:16:35,259 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:35,262 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41746492
+2026-03-04 22:16:35,262 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41746446
+2026-03-04 22:16:35,993 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:35,996 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41746446
+2026-03-04 22:16:35,996 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41746431
+2026-03-04 22:16:36,694 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:36,698 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41746431
+2026-03-04 22:16:36,698 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41745220
+2026-03-04 22:16:40,602 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:40,605 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41745220
+2026-03-04 22:16:40,606 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41744144
+2026-03-04 22:16:41,881 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:41,884 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41744144
+2026-03-04 22:16:41,885 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41743903
+2026-03-04 22:16:43,059 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:43,062 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41743903
+2026-03-04 22:16:43,062 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 1/10 papers in batch
+2026-03-04 22:16:43,119 - claude_pipeline.pipeline - INFO - Stored 1 treatment records
+2026-03-04 22:16:43,620 - claude_pipeline.ncbi_fetcher - INFO - Progress: 90/100 papers fetched (90.0%)
+2026-03-04 22:16:44,287 - claude_pipeline.ncbi_fetcher - INFO - Search found 44317 total papers, fetched 10 IDs starting from 90
+2026-03-04 22:16:45,267 - claude_pipeline.ncbi_fetcher - INFO - Fetched details for 10 papers
+2026-03-04 22:16:45,313 - claude_pipeline.treatment_extractor - INFO - Processing paper 1/10: 41742408
+2026-03-04 22:16:48,384 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:48,387 - claude_pipeline.treatment_extractor - INFO - Extracted 1 treatments from paper 41742408
+2026-03-04 22:16:48,387 - claude_pipeline.treatment_extractor - INFO - Processing paper 2/10: 41742358
+2026-03-04 22:16:49,204 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:49,208 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41742358
+2026-03-04 22:16:49,208 - claude_pipeline.treatment_extractor - INFO - Processing paper 3/10: 41742218
+2026-03-04 22:16:50,101 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:50,103 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41742218
+2026-03-04 22:16:50,104 - claude_pipeline.treatment_extractor - INFO - Processing paper 4/10: 41741781
+2026-03-04 22:16:50,985 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:50,991 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41741781
+2026-03-04 22:16:50,991 - claude_pipeline.treatment_extractor - INFO - Processing paper 5/10: 41741707
+2026-03-04 22:16:58,118 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:58,122 - claude_pipeline.treatment_extractor - INFO - Extracted 2 treatments from paper 41741707
+2026-03-04 22:16:58,122 - claude_pipeline.treatment_extractor - INFO - Processing paper 6/10: 41741588
+2026-03-04 22:16:58,828 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:58,830 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41741588
+2026-03-04 22:16:58,830 - claude_pipeline.treatment_extractor - INFO - Processing paper 7/10: 41741416
+2026-03-04 22:16:59,544 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:16:59,548 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41741416
+2026-03-04 22:16:59,548 - claude_pipeline.treatment_extractor - INFO - Processing paper 8/10: 41741014
+2026-03-04 22:17:00,376 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:17:00,379 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41741014
+2026-03-04 22:17:00,379 - claude_pipeline.treatment_extractor - INFO - Processing paper 9/10: 41740210
+2026-03-04 22:17:01,594 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:17:01,597 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41740210
+2026-03-04 22:17:01,598 - claude_pipeline.treatment_extractor - INFO - Processing paper 10/10: 41735202
+2026-03-04 22:17:02,412 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:17:02,413 - claude_pipeline.treatment_extractor - INFO - No treatments found in paper 41735202
+2026-03-04 22:17:02,413 - claude_pipeline.treatment_extractor - INFO - Extracted treatments from 2/10 papers in batch
+2026-03-04 22:17:02,479 - claude_pipeline.pipeline - INFO - Stored 2 treatment records
+2026-03-04 22:17:02,513 - claude_pipeline.checkpoint_manager - INFO - Checkpoint saved: pipeline_id=autism_pipeline_22bc0e97, stage=fetch_papers, papers_processed=100
+2026-03-04 22:17:02,513 - claude_pipeline.pipeline - INFO - Checkpoint saved at 100 papers
+2026-03-04 22:17:03,014 - claude_pipeline.ncbi_fetcher - INFO - Progress: 100/100 papers fetched (100.0%)
+2026-03-04 22:17:03,128 - claude_pipeline.checkpoint_manager - INFO - Checkpoint saved: pipeline_id=autism_pipeline_22bc0e97, stage=fetch_papers_complete, papers_processed=100
+2026-03-04 22:17:03,129 - claude_pipeline.pipeline - INFO - ================================================================================
+2026-03-04 22:17:03,129 - claude_pipeline.pipeline - INFO - STAGE 2: Building treatment hierarchy
+2026-03-04 22:17:03,129 - claude_pipeline.pipeline - INFO - ================================================================================
+2026-03-04 22:17:03,130 - claude_pipeline.pipeline - INFO - Fetching all treatment records from database...
+2026-03-04 22:17:03,249 - claude_pipeline.pipeline - INFO - Building hierarchy from 17 records...
+2026-03-04 22:17:03,250 - claude_pipeline.treatment_classifier - INFO - Found 25 unique drug treatments
+2026-03-04 22:17:33,748 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-04 22:17:33,848 - claude_pipeline.pipeline - INFO - Stored treatment hierarchy with 25 unique drugs
+2026-03-04 22:17:33,951 - claude_pipeline.checkpoint_manager - INFO - Checkpoint saved: pipeline_id=autism_pipeline_22bc0e97, stage=build_hierarchy_complete, papers_processed=100
+2026-03-04 22:17:33,951 - claude_pipeline.pipeline - INFO - ================================================================================
+2026-03-04 22:17:33,952 - claude_pipeline.pipeline - INFO - PIPELINE COMPLETE
+2026-03-04 22:17:33,952 - claude_pipeline.pipeline - INFO - ================================================================================
+2026-03-04 22:17:33,952 - claude_pipeline.pipeline - INFO - Papers fetched: 100
+2026-03-04 22:17:33,952 - claude_pipeline.pipeline - INFO - Papers with treatments: 17
+2026-03-04 22:17:33,952 - claude_pipeline.pipeline - INFO - Total treatments extracted: 27
+2026-03-04 22:17:33,953 - claude_pipeline.pipeline - INFO - Errors encountered: 0
+2026-03-04 22:17:33,953 - claude_pipeline.pipeline - INFO - Duration: 231.01 seconds
+2026-03-04 22:17:34,053 - claude_pipeline.checkpoint_manager - INFO - Checkpoint saved: pipeline_id=autism_pipeline_22bc0e97, stage=complete, papers_processed=0
+2026-03-04 22:17:34,101 - __main__ - ERROR - Pipeline failed: Cannot use MongoClient after close
+Traceback (most recent call last):
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/claude_pipeline/run.py", line 182, in main
+    db_stats = pipeline.get_statistics()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/claude_pipeline/pipeline.py", line 374, in get_statistics
+    "papers_in_db": self.papers_collection.count_documents({}),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2163, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2177, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2048, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2014, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2763, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2908, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2856, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1833, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 428, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 298, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 376, in _select_servers_loop
+    self._ensure_opened()
+  File "/home/shivaji/svich/always-around.me/code/python/generate_base_data/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 812, in _ensure_opened
+    raise InvalidOperation("Cannot use MongoClient after close")
+pymongo.errors.InvalidOperation: Cannot use MongoClient after close
